@@ -1,6 +1,8 @@
 ﻿using AppMediaMusic.BLL.Services;
 using System;
+using System.IO;
 using System.Windows;
+using System.Windows.Media.Imaging;
 using WMPLib;
 
 namespace AppMediaMusic
@@ -51,17 +53,45 @@ namespace AppMediaMusic
             UpdateSongInfo(filePath);
         }
 
+        //private void UpdateSongInfo(string filePath)
+        //{
+        //    // Retrieve song info (title and artist) based on the file path
+        //    var song = _songService.GetAllSongs().FirstOrDefault(s => s.FilePath == filePath);
+        //    if (song != null)
+        //    {
+        //        // Update the UI elements with song title and artist
+        //        SongTitleText.Text = song.Title;
+        //        ArtistNameText.Text = song.Artist;
+        //    }
+        //}
+
         private void UpdateSongInfo(string filePath)
         {
-            // Retrieve song info (title and artist) based on the file path
             var song = _songService.GetAllSongs().FirstOrDefault(s => s.FilePath == filePath);
             if (song != null)
             {
-                // Update the UI elements with song title and artist
                 SongTitleText.Text = song.Title;
                 ArtistNameText.Text = song.Artist;
+
+                if (song.AlbumArt != null)
+                {
+                    using (var stream = new MemoryStream(song.AlbumArt))
+                    {
+                        var bitmap = new BitmapImage();
+                        bitmap.BeginInit();
+                        bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                        bitmap.StreamSource = stream;
+                        bitmap.EndInit();
+                        AlbumArtImage.Source = bitmap;
+                    }
+                }
+                else
+                {
+                    AlbumArtImage.Source = new BitmapImage(new Uri("pack://application:,,,/AppMediaMusic;component/Images/defaultAlbumArt.jpg"));
+                }
             }
         }
+
 
         private void Player_PlayStateChange(int NewState)
         {

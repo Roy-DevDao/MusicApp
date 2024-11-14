@@ -1,0 +1,2 @@
+
+dotnet ef dbcontext scaffold "Server=BAO;Database=AssignmentPRN;UID=sa;PWD=123;TrustServerCertificate=True" "Microsoft.EntityFrameworkCore.SqlServer" --output-dir "Entities" --context-dir ".\" -- force

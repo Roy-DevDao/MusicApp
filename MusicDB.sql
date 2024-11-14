@@ -13,9 +13,10 @@ CREATE TABLE [Users] (
 CREATE TABLE UserProfie (
     user_id INT PRIMARY KEY,
     FullName NVARCHAR(100) NOT NULL,
-    Bỉth Date NOT NULL,
+    Birth Date NOT NULL,
 	Phone varchar(10) not null,
 	Email varchar(50) not null,
+	ImageUrl varchar(200),
 	FOREIGN KEY (user_id) REFERENCES [Users](user_id) ON DELETE CASCADE,
 );
 

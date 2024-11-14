@@ -20,6 +20,9 @@ namespace AppMediaMusic
         private int _currentSongIndex = 0;
         private bool isDraggingSlider = false;
         private PlaylistService _playlistService = new PlaylistService();
+        public User AuthenticatedUser { get; set; }
+        public int UserId => AuthenticatedUser?.UserId ?? 0;
+        private _WMPOCXEvents_OpenStateChangeEventHandler openStateHandler;
 
         public MainWindow()
         {
@@ -29,8 +32,7 @@ namespace AppMediaMusic
 
         }
 
-        public User AuthenticatedUser { get; set; }
-        public int UserId => AuthenticatedUser?.UserId ?? 0;
+      
 
         private void PlaylistButton_Click(object sender, RoutedEventArgs e)
         {
@@ -122,20 +124,59 @@ namespace AppMediaMusic
             }
         }
 
+        //private async void SongListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    if (SongListView.SelectedItem is Song selectedSong)
+        //    {
+        //        // Play the selected song
+        //        _player.URL = selectedSong.FilePath;
+        //        _player.controls.play();
+
+        //        await Task.Delay(500);
+
+        //        // Update the total time for the new song
+        //        if (_player.currentMedia != null)
+        //        {
+        //            TotalTimeText.Text = FormatTime(_player.currentMedia.duration);
+        //            TimelineSlider.Maximum = _player.currentMedia.duration;
+        //        }
+
+        //        PauseButton.Content = "⏸ Pause";
+        //        StartTimer();
+        //    }
+        //}
+
+
+
         private void SongListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (SongListView.SelectedItem is Song selectedSong)
             {
-                // Play the selected song
+                // Xóa handler cũ nếu có
+                if (openStateHandler != null)
+                {
+                    _player.OpenStateChange -= openStateHandler;
+                }
+
                 _player.URL = selectedSong.FilePath;
                 _player.controls.play();
 
-                // Update the total time for the new song
-                if (_player.currentMedia != null)
+                // Tạo và gán handler mới
+                openStateHandler = (newState) =>
                 {
-                    TotalTimeText.Text = FormatTime(_player.currentMedia.duration);
-                    TimelineSlider.Maximum = _player.currentMedia.duration;
-                }
+                    if ((WMPOpenState)newState == WMPOpenState.wmposMediaOpen)
+                    {
+                        if (_player.currentMedia != null)
+                        {
+                            Application.Current.Dispatcher.Invoke(() =>
+                            {
+                                TotalTimeText.Text = FormatTime(_player.currentMedia.duration);
+                                TimelineSlider.Maximum = _player.currentMedia.duration;
+                            });
+                        }
+                    }
+                };
+                _player.OpenStateChange += openStateHandler;
 
                 PauseButton.Content = "⏸ Pause";
                 StartTimer();

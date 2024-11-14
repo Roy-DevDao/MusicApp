@@ -33,7 +33,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}" 
-                            BorderBrush="#388E3C" BorderThickness="2" 
+                            BorderBrush="#FFEE8DB0" BorderThickness="2" 
                             CornerRadius="10" Padding="5">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
@@ -42,7 +42,7 @@
             <Button.Background>
                 <LinearGradientBrush>
                     <GradientStop Color="#30ad9a" Offset="0"/>
-                    <GradientStop Color="#18c274" Offset="1"/>
+                    <GradientStop Color="#FFEE8DB0" Offset="1"/>
                 </LinearGradientBrush>
             </Button.Background>
             <Button.Foreground>White</Button.Foreground>

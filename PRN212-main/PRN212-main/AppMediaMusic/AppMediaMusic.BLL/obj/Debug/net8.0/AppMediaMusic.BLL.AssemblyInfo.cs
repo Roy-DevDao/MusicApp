@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AppMediaMusic.BLL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2eda6e032def6f39c46d32af09dab2229e0f737b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c9aa24cb77d84e1b46412254c90aa858998c82c")]
 [assembly: System.Reflection.AssemblyProductAttribute("AppMediaMusic.BLL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AppMediaMusic.BLL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

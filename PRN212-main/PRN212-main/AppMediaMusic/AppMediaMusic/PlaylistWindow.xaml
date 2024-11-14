@@ -28,7 +28,7 @@
                         <Ellipse Fill="#ffbf2f" Width="10" Height="10" Margin="7 0"/>
                         <Ellipse Fill="#2acb42" Width="10" Height="10"/>
                     </StackPanel>
-                    <TextBlock Text="LIBRARY" Style="{StaticResource menuTitle}"/>
+                    <TextBlock Text="LIBRARY" Style="{StaticResource menuTitle}" Foreground="#FF2FB432"/>
 
                     <Button Style="{StaticResource menuButton}">
                         <Grid>
@@ -36,7 +36,7 @@
                         </Grid>
                     </Button>
 
-                    <Button x:Name="PlaylistButton" Style="{StaticResource menuButton}" Background="#02be68" Foreground="White">
+                    <Button x:Name="PlaylistButton" Style="{StaticResource menuButton}" Background="#FFEE8DB0" Foreground="White">
                         <Grid>
                             <TextBlock Text="Playlists" Margin="0 0 0 2"/>
                         </Grid>

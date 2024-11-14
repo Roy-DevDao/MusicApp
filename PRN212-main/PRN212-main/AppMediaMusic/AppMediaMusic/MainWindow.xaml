@@ -14,6 +14,9 @@
 
     <Border Background="White" CornerRadius="40" Loaded="Window_Loaded">
         <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Images/backg.jpg"/>
+            </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="220"/>
                 <ColumnDefinition Width="*"/>
@@ -35,7 +38,7 @@
                     </StackPanel>
                     <TextBlock Text="LIBRARY" Style="{StaticResource menuTitle}"/>
 
-                    <Button Style="{StaticResource menuButton}" Background="#02be68" Foreground="White">
+                    <Button Style="{StaticResource menuButton}" Background="#FFEE8DB0" Foreground="White">
                         <Grid>
                             <TextBlock Text="Home"/>
                             <Icon:PackIconMaterial Style="{StaticResource menuButtonIcon}" Visibility="Visible"/>
@@ -44,7 +47,7 @@
 
                     <Button x:Name="PlaylistButton" Style="{StaticResource menuButton}" Click="PlaylistButton_Click">
                         <Grid>
-                            <TextBlock Text="Playlists" Margin="0 0 0 2"/>
+                            <TextBlock Text="Playlists" Height="24" VerticalAlignment="Top"/>
                             <Icon:PackIconMaterial Style="{StaticResource menuButtonIcon}"/>
                         </Grid>
                     </Button>
@@ -55,15 +58,15 @@
             </Border>
 
             <!-- Music Section -->
-            <StackPanel Grid.Column="1" Background="White" Margin="29,10,78,25" Grid.ColumnSpan="2">
+            <StackPanel Grid.Column="1" Background="#FF615A5A" Margin="29,10,78,25" Grid.ColumnSpan="2">
 
-                <TextBlock Text="Home" Style="{StaticResource titelText}" Height="51"/>
+                <TextBlock Text="Home" Style="{StaticResource titelText}" Height="51" Foreground="#FF32CF8B"/>
 
                 <Border CornerRadius="20" Margin="0 20 0 0" Width="700" Height="295">
                     <Border.Background>
                         <LinearGradientBrush>
                             <GradientStop Color="#30ad9a" Offset="0"/>
-                            <GradientStop Color="#18c274" Offset="1"/>
+                            <GradientStop Color="#FFB096DA" Offset="1"/>
                         </LinearGradientBrush>
                     </Border.Background>
 
@@ -202,29 +205,41 @@
 
                             <StackPanel Orientation="Horizontal" Margin="0,10,0,0"/>
                         </StackPanel>
-                        <Slider Name="TimelineSlider" 
-        Minimum="0" 
-        Maximum="100" 
-        Value="0" 
-        TickFrequency="1" 
-        IsSnapToTickEnabled="True" 
-        SmallChange="1" 
-        LargeChange="10" 
-        HorizontalAlignment="Stretch" 
-        VerticalAlignment="Bottom" 
+                        <Slider Name="TimelineSlider"
+        Minimum="0"
+        Maximum="100"
+        Value="0"
+        TickFrequency="1"
+        IsSnapToTickEnabled="True"
+        SmallChange="1"
+        LargeChange="10"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Bottom"
         ValueChanged="TimelineSlider_ValueChanged"
-                                Margin="58,269,234,8"/>
+        PreviewMouseDown="TimelineSlider_PreviewMouseDown"
+        PreviewMouseUp="TimelineSlider_PreviewMouseUp"
+        Margin="58,269,234,8" RenderTransformOrigin="0.5,0.5">
+                            <Slider.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="0.025"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Slider.RenderTransform>
+                        </Slider>
 
 
-                        <TextBlock x:Name="TotalTimeText" Text="00:00" VerticalAlignment="Top" Margin="471,268,207,0"/>
-                        <TextBlock x:Name="CurrentTimeText" Text="00:00" VerticalAlignment="Top" Margin="30,269,648,0"/>
+
+                        <TextBlock x:Name="TotalTimeText" Text="00:00" VerticalAlignment="Top" Margin="471,268,200,0"/>
+                        <TextBlock x:Name="CurrentTimeText" Text="00:00" VerticalAlignment="Top" Margin="20,269,648,0"/>
                         <Button x:Name="PauseButton" Content="⏸ Pause" Click="PauseButton_Click" Margin="480,39,145,236"/>
                         <Button Content="Next" Click="NextButton_Click" Margin="595,39,30,236"/>
                         <Button Content="Previous" Click="PreviousButton_Click" Margin="364,39,261,236"/>
                         <Button Content="⏭" Click="FastForwardButton_Click" Margin="560,39,110,236"/>
                         <Button Content="⏮" Click="RewindButton_Click" Margin="444,39,226,236"/>
                         <Slider x:Name="VolumeSlider" Minimum="0" Maximum="1" Value="0.5" ValueChanged="VolumeSlider_ValueChanged" Margin="575,268,25,8"/>
-                        <TextBlock Text="Volume" Margin="536,269,125,11"/>
+                        <TextBlock Text="Volume" Margin="530,269,125,11"/>
                     </Grid>
                 </Border>
             </StackPanel>

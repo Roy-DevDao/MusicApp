@@ -6,7 +6,7 @@
     <!-- Outer Border for Rounded Corners -->
     <Border Padding="20" CornerRadius="20" HorizontalAlignment="Center" Width="940">
         <Border.Background>
-            <ImageBrush ImageSource="pack://application:,,,/Images/BGimg.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="pack://application:,,,/Images/backg.jpg" Stretch="UniformToFill"/>
         </Border.Background>
 
         <Grid Margin="0,0,0,0" RenderTransformOrigin="0.511,0.51">
@@ -17,27 +17,27 @@
             </Grid.ColumnDefinitions>
 
             <!-- Title Text -->
-            <TextBlock Text="Login" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="50" FontWeight="Bold" Foreground="#222222" Margin="204,58,0,0" Grid.Column="1"/>
+            <TextBlock Text="Login" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="50" FontWeight="Bold" Foreground="#FFDDD4D4" Margin="93,149,0,0"/>
 
             <!-- Username Field -->
-            <StackPanel HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Top" Width="300" Margin="120,157,0,0">
-                <Label Content="Username" Foreground="#666" FontWeight="Bold"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Margin="10,208,0,0">
+                <Label Content="Username" Foreground="#FFFFCCCC" FontWeight="Bold"/>
                 <Grid Width="300" Height="40" Margin="0,5,0,20">
                     <TextBox Padding="10" x:Name="UsernameTextBox" FontSize="14" BorderThickness="1" BorderBrush="#ccc"/>
                 </Grid>
             </StackPanel>
 
             <!-- Password Field -->
-            <StackPanel HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Top" Width="300" Margin="120,253,0,0">
-                <Label Content="Password" Foreground="#666" FontWeight="Bold"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Margin="10,281,0,0">
+                <Label Content="Password" Foreground="#FFFFCCCC" FontWeight="Bold"/>
                 <Grid Width="300" Height="40" Margin="0,5,0,20">
                     <PasswordBox Padding="10" x:Name="PasswordTextBox" FontSize="14" BorderThickness="1" BorderBrush="#ccc"/>
                 </Grid>
             </StackPanel>
 
             <!-- Buttons -->
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="120,0,0,84" Grid.Column="1">
-                <Button Width="130" Height="45" FontSize="16" Foreground="White" Content="Login" Click="Button_Click" BorderThickness="0" Background="#4CAF50" Margin="10,0,10,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,73">
+                <Button Width="130" Height="45" FontSize="16" Foreground="White" Content="Login" Click="Button_Click" BorderThickness="0" Background="#FFDC9DD6" Margin="10,0,10,0">
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border Padding="10" CornerRadius="5" Background="{TemplateBinding Background}">
@@ -47,7 +47,7 @@
                     </Button.Template>
                 </Button>
 
-                <Button Width="130" Height="45" FontSize="16" Foreground="White" Content="Quit" Click="QuitButton_Click" BorderThickness="0" Background="#E74C3C" Margin="10,0,10,0">
+                <Button Width="130" Height="45" FontSize="16" Foreground="White" Content="Quit" Click="QuitButton_Click" BorderThickness="0" Background="#FFB82349" Margin="10,0,10,0">
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border Padding="10" CornerRadius="5" Background="{TemplateBinding Background}">
