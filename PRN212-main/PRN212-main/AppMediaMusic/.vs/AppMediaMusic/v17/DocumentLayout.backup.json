@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "D:\\Project-PRN212\\PRN212-main\\PRN212-main\\AppMediaMusic\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9318B54B-F051-42B2-9FA5-7692BA7B37DC}|AppMediaMusic.DAL\\AppMediaMusic.DAL.csproj|d:\\project-prn212\\prn212-main\\prn212-main\\appmediamusic\\appmediamusic.dal\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9318B54B-F051-42B2-9FA5-7692BA7B37DC}|AppMediaMusic.DAL\\AppMediaMusic.DAL.csproj|solutionrelative:appmediamusic.dal\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC689419-E005-4198-94BB-C9984E5BFC3B}|AppMediaMusic\\AppMediaMusic.csproj|d:\\project-prn212\\prn212-main\\prn212-main\\appmediamusic\\appmediamusic\\playlistdetailswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC689419-E005-4198-94BB-C9984E5BFC3B}|AppMediaMusic\\AppMediaMusic.csproj|solutionrelative:appmediamusic\\playlistdetailswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BC689419-E005-4198-94BB-C9984E5BFC3B}|AppMediaMusic\\AppMediaMusic.csproj|d:\\project-prn212\\prn212-main\\prn212-main\\appmediamusic\\appmediamusic\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC689419-E005-4198-94BB-C9984E5BFC3B}|AppMediaMusic\\AppMediaMusic.csproj|solutionrelative:appmediamusic\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -27,19 +35,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "D:\\Project-PRN212\\PRN212-main\\PRN212-main\\AppMediaMusic\\AppMediaMusic.DAL\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "AppMediaMusic.DAL\\Repositories\\UserRepository.cs",
+              "ToolTip": "D:\\Project-PRN212\\PRN212-main\\PRN212-main\\AppMediaMusic\\AppMediaMusic.DAL\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "AppMediaMusic.DAL\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T03:58:53.957Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlaylistDetailsWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Project-PRN212\\PRN212-main\\PRN212-main\\AppMediaMusic\\AppMediaMusic\\PlaylistDetailsWindow.xaml.cs",
+              "RelativeDocumentMoniker": "AppMediaMusic\\PlaylistDetailsWindow.xaml.cs",
+              "ToolTip": "D:\\Project-PRN212\\PRN212-main\\PRN212-main\\AppMediaMusic\\AppMediaMusic\\PlaylistDetailsWindow.xaml.cs",
+              "RelativeToolTip": "AppMediaMusic\\PlaylistDetailsWindow.xaml.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAuwIIAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T03:51:47.453Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\Project-PRN212\\PRN212-main\\PRN212-main\\AppMediaMusic\\AppMediaMusic\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "AppMediaMusic\\MainWindow.xaml.cs",
               "ToolTip": "D:\\Project-PRN212\\PRN212-main\\PRN212-main\\AppMediaMusic\\AppMediaMusic\\MainWindow.xaml.cs",
               "RelativeToolTip": "AppMediaMusic\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAArwCkAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGgAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-15T03:47:18.713Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ForgetPasswordWindow.xaml.cs",
               "DocumentMoniker": "D:\\Project-PRN212\\PRN212-main\\PRN212-main\\AppMediaMusic\\AppMediaMusic\\ForgetPasswordWindow.xaml.cs",
               "RelativeDocumentMoniker": "AppMediaMusic\\ForgetPasswordWindow.xaml.cs",
