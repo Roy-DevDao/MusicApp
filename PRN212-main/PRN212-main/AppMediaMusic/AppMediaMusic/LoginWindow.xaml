@@ -59,10 +59,20 @@
 
 
             </StackPanel>
-            <Button x:Name="forgetPassword" Width="130" Height="45" FontSize="16" Background="#FF223C75"  Foreground="#FFFAD5D5" Content="Forget Password" Click="forgetPassword_Click" BorderThickness="0" Margin="85,440,235,10">
+            <Button x:Name="forgetPassword" Height="45" FontSize="16" Background="#FF223C75"  Foreground="#FFFAD5D5" Content="Forget Password" Click="forgetPassword_Click" BorderThickness="0" Margin="10,440,330,10">
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Padding="10" CornerRadius="5" Background="{TemplateBinding Background}" Margin="0,0,-25,0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Width="130" Height="45" FontSize="16" Foreground="White" Content="SignUp" Click="SignUp_Click" BorderThickness="0" Background="Orange" Margin="159,440,161,10">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Padding="10" CornerRadius="5" Background="{TemplateBinding Background}">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>

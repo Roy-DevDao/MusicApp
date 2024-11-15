@@ -18,27 +18,32 @@ namespace AppMediaMusic
     public partial class PlaylistSelectionWindow : Window
     {
         public string SelectedPlaylist { get; private set; }
+        private int UserId { get; set; }
 
-        public PlaylistSelectionWindow()
+        // Constructor nhận UserId
+        public PlaylistSelectionWindow(int userId)
         {
             InitializeComponent();
+            UserId = userId;  // Lưu UserId vào biến để sử dụng sau
             LoadPlaylists();
         }
 
+        // Hàm tải các playlist thuộc về UserId
         private void LoadPlaylists()
         {
             using (var context = new AssignmentPrnContext())
             {
+                // Lọc các playlist theo UserId
                 var playlists = context.Playlists
+                                       .Where(p => p.UserId == UserId) // Điều kiện lọc theo UserId
                                        .Select(p => new { p.PlaylistId, p.Name })
                                        .ToList();
 
                 PlaylistComboBox.ItemsSource = playlists;
-                PlaylistComboBox.DisplayMemberPath = "Name"; 
+                PlaylistComboBox.DisplayMemberPath = "Name";
                 PlaylistComboBox.SelectedValuePath = "PlaylistId";
             }
         }
-
 
         private void AddToPlaylist_Click(object sender, RoutedEventArgs e)
         {
@@ -55,6 +60,5 @@ namespace AppMediaMusic
                 MessageBox.Show("Please select a playlist.");
             }
         }
-
     }
 }

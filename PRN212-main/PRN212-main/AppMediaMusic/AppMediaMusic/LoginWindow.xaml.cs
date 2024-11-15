@@ -33,20 +33,27 @@ namespace AppMediaMusic
             MainWindow m = new MainWindow();
             string username = UsernameTextBox.Text.Trim();
             string password = PasswordTextBox.Password;
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrEmpty(password))
+
+            if (string.IsNullOrWhiteSpace(username) && string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Please input username & password", "Filed required", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Please input username & password", "Fields required", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
             User? user = _service.Authenticate(username, password);
             if (user == null)
             {
-                {
-                    MessageBox.Show("Password or Username is incorrect", "Wrong credential", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
+                MessageBox.Show("Password or Username is incorrect", "Wrong credential", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
+            if (user.Role == 0)
+            {
+                AdminManagementWindow adminWindow = new AdminManagementWindow();
+                adminWindow.Show();
+                this.Hide();
+                return;
+            }
+
             m.AuthenticatedUser = user;
             m.Show();
             this.Hide();
@@ -60,6 +67,12 @@ namespace AppMediaMusic
         {
             ForgetPasswordWindow m = new ForgetPasswordWindow();
             m.ShowDialog();
+        }
+
+        private void SignUp_Click(object sender, RoutedEventArgs e)
+        {
+            SignUp signUpWindow = new SignUp();
+            signUpWindow.ShowDialog();
         }
     }
 }

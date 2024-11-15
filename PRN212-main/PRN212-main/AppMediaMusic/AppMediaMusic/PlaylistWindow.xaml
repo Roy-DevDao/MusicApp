@@ -30,9 +30,9 @@
                     </StackPanel>
                     <TextBlock Text="LIBRARY" Style="{StaticResource menuTitle}" Foreground="#FF2FB432"/>
 
-                    <Button Style="{StaticResource menuButton}">
+                    <Button Style="{StaticResource menuButton}" Click="Button_Click">
                         <Grid>
-                            <TextBlock Text="Home"/>
+                            <TextBlock Text="Home" Height="24" VerticalAlignment="Top"/>
                         </Grid>
                     </Button>
 

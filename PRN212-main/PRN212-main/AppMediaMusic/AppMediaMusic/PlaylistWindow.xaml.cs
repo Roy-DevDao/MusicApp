@@ -209,5 +209,11 @@ namespace AppMediaMusic
             }
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow lg = new MainWindow();
+            lg.Show();
+            this.Close();
+        }
     }
 }

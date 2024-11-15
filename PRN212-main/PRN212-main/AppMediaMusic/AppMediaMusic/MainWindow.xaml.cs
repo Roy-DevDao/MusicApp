@@ -23,7 +23,6 @@ namespace AppMediaMusic
         public User AuthenticatedUser { get; set; }
         public int UserId => AuthenticatedUser?.UserId ?? 0;
         private _WMPOCXEvents_OpenStateChangeEventHandler openStateHandler;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -51,42 +50,48 @@ namespace AppMediaMusic
             SongListView.ItemsSource = songs;
         }
 
-        private void DeleteSongButton_Click(object sender, RoutedEventArgs e)
-        {
-            var selectedItem = SongListView.SelectedItem as Song;
+        //private void DeleteSongButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var selectedItem = SongListView.SelectedItem as Song;
 
-            if (selectedItem == null)
-            {
-                MessageBox.Show("Please select a song before delete", "Select one", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
+        //    if (selectedItem == null)
+        //    {
+        //        MessageBox.Show("Please select a song before delete", "Select one", MessageBoxButton.OK, MessageBoxImage.Warning);
+        //        return;
+        //    }
 
-            MessageBoxResult answer = MessageBox.Show("Do you want to delete this song?", "Confirm?", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (answer == MessageBoxResult.No) return;
+        //    MessageBoxResult answer = MessageBox.Show("Do you want to delete this song?", "Confirm?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+        //    if (answer == MessageBoxResult.No) return;
 
-            _songService.Delete(selectedItem);
-            FillListView();
-        }
+        //    _songService.Delete(selectedItem);
+        //    _player.controls.stop();
+        //    TimelineSlider.Value = 0;
+        //    CurrentTimeText.Text = "00:00";
+        //    FillListView();
+        //}
 
-        private void AddSongButton_Click(object sender, RoutedEventArgs e)
-        {
-            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
-            openFileDialog.Filter = "Media files (*.mp4;*.mp3)|*.mp4;*.mp3|All files (*.*)|*.*";
-            openFileDialog.Multiselect = true;
+        //private void AddSongButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
+        //    openFileDialog.Filter = "Media files (*.mp4;*.mp3)|*.mp4;*.mp3|All files (*.*)|*.*";
+        //    openFileDialog.Multiselect = true;
 
-            if (openFileDialog.ShowDialog() == true)
-            {
-                foreach (string filePath in openFileDialog.FileNames)
-                {
-                    bool added = _songService.AddSong(filePath);
-                    if (!added)
-                    {
-                        MessageBox.Show($"The song '{System.IO.Path.GetFileNameWithoutExtension(filePath)}' already exists in the database.", "Duplicate Song", MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
-                }
-                FillListView();
-            }
-        }
+        //    if (openFileDialog.ShowDialog() == true)
+        //    {
+        //        foreach (string filePath in openFileDialog.FileNames)
+        //        {
+        //            bool added = _songService.AddSong(filePath);
+        //            if (!added)
+        //            {
+        //                MessageBox.Show($"The song '{System.IO.Path.GetFileNameWithoutExtension(filePath)}' already exists in the database.", "Duplicate Song", MessageBoxButton.OK, MessageBoxImage.Information);
+        //            }
+        //        }
+        //        FillListView();
+        //    }
+        //}
+
+        //<Button Content = "Delete" Style="{StaticResource menuButton}" Click="DeleteSongButton_Click"/>
+        //            <Button Content = "Add" Style="{StaticResource menuButton}" Click="AddSongButton_Click"/>
 
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
@@ -335,7 +340,13 @@ namespace AppMediaMusic
 
         private void QuitButton_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            if (_player.playState == WMPPlayState.wmppsPlaying)
+            {
+                _player.controls.stop();
+            }
+            LoginWindow lg = new LoginWindow();
+            lg.Show();
+            this.Close();
         }
 
         private void AddToPlaylistButton_Click(object sender, RoutedEventArgs e)
@@ -345,7 +356,7 @@ namespace AppMediaMusic
             {
                 string filePath = button.Tag.ToString();
 
-                PlaylistSelectionWindow selectionWindow = new PlaylistSelectionWindow();
+                PlaylistSelectionWindow selectionWindow = new PlaylistSelectionWindow(UserId);
                 if (selectionWindow.ShowDialog() == true)
                 {
                     // Get the selected playlist's ID
@@ -372,5 +383,12 @@ namespace AppMediaMusic
             }
         }
 
+        private void ProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            UserProfileWindow u = new UserProfileWindow();
+            u.user = AuthenticatedUser;
+            u.ShowDialog();
+
+        }
     }
 }

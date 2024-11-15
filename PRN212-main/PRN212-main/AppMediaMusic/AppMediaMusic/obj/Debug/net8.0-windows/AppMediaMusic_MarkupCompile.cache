@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\Project-PRN212\PRN212-main\PRN212-main\AppMediaMusic\AppMediaMusic\App.xaml
-82030679652
+17-1360430647
 
-1292878853
-251-509762117
-ForgetPasswordWindow.xaml;LoginWindow.xaml;MainWindow.xaml;PlaylistDetailsWindow.xaml;PlaylistSelectionWindow.xaml;PlaylistWindow.xaml;SongDetail.xaml;UserControls\SongItem.xaml;
+211391485379
+253-586393726
+AdminManagementWindow.xaml;ForgetPasswordWindow.xaml;LoginWindow.xaml;MainWindow.xaml;ManageSongWindow.xaml;ManageUser.xaml;ModifyUser.xaml;PlaylistDetailsWindow.xaml;PlaylistSelectionWindow.xaml;PlaylistWindow.xaml;SignUp.xaml;SongDetail.xaml;Statistic.xaml;UpdateSong.xaml;UserControls\SongItem.xaml;UserProfileWindow.xaml;ViewProfileImage.xaml;
 
 False
 

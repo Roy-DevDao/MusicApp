@@ -24,4 +24,6 @@ public partial class Song
 
     [NotMapped]
     public byte[] AlbumArt { get; set; }
+    [NotMapped]
+    public bool IsPlaying { get; set; }
 }

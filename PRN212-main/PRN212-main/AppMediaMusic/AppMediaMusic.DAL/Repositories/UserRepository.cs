@@ -28,7 +28,10 @@ namespace AppMediaMusic.DAL.Repositories
         }
         public List<User> GetAll()
         {
-            return _context.Users.Include("UserProfile").ToList();
+            return _context.Users
+                 .Where(u => u.Role == 1) // Lọc người dùng có Role = 1
+                 .Include(u => u.UserProfile) // Bao gồm thông tin UserProfile
+                 .ToList();
         }
         public void UpdateUser(User user)
         {
@@ -39,6 +42,17 @@ namespace AppMediaMusic.DAL.Repositories
         {
             _context.Users.Remove(user);
             _context.SaveChanges();
+        }
+
+        public void AddAdmin(User user)
+        {
+            _context.Users.Add(user);
+            _context.SaveChanges();
+        }
+
+        public User GetUserById(int id)
+        {
+            return _context.Users.FirstOrDefault(c => c.UserId == id);
         }
 
     }

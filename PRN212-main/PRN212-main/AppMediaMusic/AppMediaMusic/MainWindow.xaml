@@ -51,17 +51,27 @@
                             <Icon:PackIconMaterial Style="{StaticResource menuButtonIcon}"/>
                         </Grid>
                     </Button>
-                    <Button Content="Delete" Style="{StaticResource menuButton}" Click="DeleteSongButton_Click"/>
-                    <Button Content="Add" Style="{StaticResource menuButton}" Click="AddSongButton_Click"/>
-                    <Button Content="Quit" Style="{StaticResource menuButton}" Click="QuitButton_Click"/>
+                    
+                    <Button Content="Log Out" Style="{StaticResource menuButton}" Click="QuitButton_Click"/>
                 </StackPanel>
             </Border>
 
             <!-- Music Section -->
             <StackPanel Grid.Column="1" Background="#FF615A5A" Margin="29,10,78,25" Grid.ColumnSpan="2">
 
-                <TextBlock Text="Home" Style="{StaticResource titelText}" Height="51" Foreground="#FF32CF8B"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <!-- Cột chứa TextBlock sẽ chiếm toàn bộ không gian còn lại -->
+                        <ColumnDefinition Width="Auto" />
+                        <!-- Cột chứa Button có chiều rộng tự động -->
+                    </Grid.ColumnDefinitions>
 
+                    <TextBlock Text="All Songs" Style="{StaticResource titelText}" Height="51" VerticalAlignment="Center" Grid.Column="0"/>
+                    <Button Click="ProfileButton_Click" Background="Transparent" BorderThickness="0" Grid.Column="1">
+                        <Icon:PackIconMaterial Kind="AccountCircle" Width="30" Height="30" Foreground="#FFC2AAAA" />
+                    </Button>
+                </Grid>
                 <Border CornerRadius="20" Margin="0 20 0 0" Width="700" Height="295">
                     <Border.Background>
                         <LinearGradientBrush>

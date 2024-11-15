@@ -11,7 +11,9 @@ using System.Threading.Tasks;
 namespace AppMediaMusic.BLL.Services
 {
     public class UserService
+
     {
+        private readonly AssignmentPrnContext _context = new();
         private UserRepository _repo = new UserRepository();
         public User Authenticate(string user, string pass)
         {
@@ -29,6 +31,21 @@ namespace AppMediaMusic.BLL.Services
             {
                 return false;
             }
+        }
+
+        public User GetUserById(int id)
+        {
+            return _repo.GetUserById(id);
+        }
+        public bool IsUsernameTaken(string username)
+        {
+            return _context.Users.Any(u => u.Username == username);
+        }
+
+
+        public void AddAdmin(User user)
+        {
+            _repo.AddAdmin(user);
         }
 
         public void AddUser(User user)
