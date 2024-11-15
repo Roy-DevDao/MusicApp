@@ -1,6 +1,6 @@
-﻿CREATE DATABASE Music;
+﻿CREATE DATABASE AssignmentPRN;
 GO
-USE Music;
+USE AssignmentPRN;
 GO
 
 CREATE TABLE [Users] (
