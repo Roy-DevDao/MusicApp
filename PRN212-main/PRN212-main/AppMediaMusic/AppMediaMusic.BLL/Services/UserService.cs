@@ -43,10 +43,23 @@ namespace AppMediaMusic.BLL.Services
         }
 
 
-        public void AddAdmin(User user)
+        public bool AddAdmin(User user)
         {
-            _repo.AddAdmin(user);
+            try
+            {
+                using (var context = new AssignmentPrnContext())
+                {
+                    context.Users.Add(user);
+                    context.SaveChanges(); // Lưu thay đổi vào cơ sở dữ liệu
+                    return true; // Thành công
+                }
+            }
+            catch
+            {
+                return false; // Thất bại
+            }
         }
+
 
         public void AddUser(User user)
         {

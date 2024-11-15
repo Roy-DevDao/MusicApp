@@ -9,6 +9,14 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Input;
 using System.Windows.Threading;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
+using System.Drawing.Printing;
+using System.Reflection.Metadata;
+using System.Windows.Media.Media3D;
+using AppMediaMusic.DAL;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
 
 namespace AppMediaMusic
 {
@@ -112,26 +120,26 @@ namespace AppMediaMusic
             }
         }
 
-        private void ItemPlayButton_Click(object sender, RoutedEventArgs e)
-        {
-            if ((sender as Button)?.DataContext is Song selectedSong)
-            {
-                // Play the selected song
-                _player.URL = selectedSong.FilePath;
-                _player.controls.play();
+        //private void ItemPlayButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if ((sender as Button)?.DataContext is Song selectedSong)
+        //    {
+        //        // Play the selected song
+        //        _player.URL = selectedSong.FilePath;
+        //        _player.controls.play();
 
-                // Set the total time for the selected song
-                if (_player.currentMedia != null)
-                {
-                    // Update the TotalTimeText with the song's total duration
-                    TotalTimeText.Text = FormatTime(_player.currentMedia.duration);
-                    TimelineSlider.Maximum = _player.currentMedia.duration;
-                }
+        //        // Set the total time for the selected song
+        //        if (_player.currentMedia != null)
+        //        {
+        //            // Update the TotalTimeText with the song's total duration
+        //            TotalTimeText.Text = FormatTime(_player.currentMedia.duration);
+        //            TimelineSlider.Maximum = _player.currentMedia.duration;
+        //        }
 
-                PauseButton.Content = "⏸ Pause";
-                StartTimer();
-            }
-        }
+        //        PauseButton.Content = "⏸ Pause";
+        //        StartTimer();
+        //    }
+        //}
 
         //private async void SongListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         //{
@@ -392,3 +400,84 @@ namespace AppMediaMusic
         }
     }
 }
+
+
+
+
+
+
+
+//< StackPanel Orientation = "Horizontal" HorizontalAlignment = "Center" Margin = "0,0,0,10" >
+//    < TextBox x: Name = "SearchTextBox" Width = "400" Height = "30" Margin = "0,0,10,0"
+//             PlaceholderText = "Enter song name or artist..." Style = "{StaticResource searchBoxStyle}" />
+//    < Button Content = "Search" Width = "100" Height = "30" Click = "SearchButton_Click"
+//            Background = "#30ad9a" Foreground = "White" Style = "{StaticResource searchButtonStyle}" />
+//</ StackPanel >
+
+
+//private void SearchButton_Click(object sender, RoutedEventArgs e)
+//{
+//    string keyword = SearchTextBox.Text.Trim().ToLower();
+
+//    if (!string.IsNullOrEmpty(keyword))
+//    {
+//        using (var context = new AssignmentPrnContext())
+//        {
+//            // Lấy danh sách bài hát có chứa từ khóa trong tiêu đề hoặc nghệ sĩ
+//            var filteredSongs = context.Songs
+//                .Where(s => s.Title.ToLower().Contains(keyword) || s.Artist.ToLower().Contains(keyword))
+//                .ToList();
+
+//            // Cập nhật dữ liệu hiển thị trên DataGrid
+//            UserDataGrid.ItemsSource = filteredSongs;
+//        }
+//    }
+//    else
+//    {
+//        // Nếu không có từ khóa, tải lại danh sách đầy đủ
+//        LoadSong();
+//    }
+//}
+
+
+//< DataGrid x: Name = "UserDataGrid" HorizontalAlignment = "Center" Height = "255" Margin = "0,30,0,0" VerticalAlignment = "Top"
+//          Width = "638" AutoGenerateColumns = "False" SelectionChanged = "UserDataGrid_SelectionChanged" >
+//    < DataGrid.Columns >
+//        < DataGridTextColumn Header = "Song ID" Binding = "{Binding SongId}" SortMemberPath = "SongId" />
+//        < DataGridTextColumn Header = "Name" Binding = "{Binding Title}" SortMemberPath = "Title" />
+//        < DataGridTextColumn Header = "Artist" Binding = "{Binding Artist}" SortMemberPath = "Artist" />
+//        < DataGridTextColumn Header = "Album" Binding = "{Binding Album}" SortMemberPath = "Album" />
+//        < DataGridTextColumn Header = "Genre" Width = "100" Binding = "{Binding Genre}" SortMemberPath = "Genre" />
+//    </ DataGrid.Columns >
+//</ DataGrid >
+
+//< DataGrid x: Name = "UserDataGrid" Sorting = "UserDataGrid_Sorting"... />
+
+//private void UserDataGrid_Sorting(object sender, DataGridSortingEventArgs e)
+//{
+//    e.Handled = true; // Dừng hành vi sắp xếp mặc định.
+
+//    string sortBy = e.Column.SortMemberPath; // Thuộc tính cần sắp xếp.
+//    ListSortDirection direction = e.Column.SortDirection != ListSortDirection.Ascending
+//        ? ListSortDirection.Ascending
+//        : ListSortDirection.Descending;
+
+//    using (var context = new AssignmentPrnContext())
+//    {
+//        var songs = context.Songs.AsQueryable();
+
+//        // Sắp xếp theo cột
+//        if (direction == ListSortDirection.Ascending)
+//            songs = songs.OrderBy(s => EF.Property<object>(s, sortBy));
+//        else
+//            songs = songs.OrderByDescending(s => EF.Property<object>(s, sortBy));
+
+//        // Cập nhật dữ liệu
+//        UserDataGrid.ItemsSource = songs.ToList();
+//    }
+
+//    // Cập nhật hướng sắp xếp của cột
+//    e.Column.SortDirection = direction;
+//}
+
+

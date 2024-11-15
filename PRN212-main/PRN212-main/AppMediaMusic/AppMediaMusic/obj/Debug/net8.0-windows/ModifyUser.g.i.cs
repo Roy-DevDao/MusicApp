@@ -68,7 +68,7 @@ namespace AppMediaMusic {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AppMediaMusic;component/modifyuser.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AppMediaMusic;V1.0.0.0;component/modifyuser.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\ModifyUser.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
