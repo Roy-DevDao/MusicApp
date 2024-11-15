@@ -36,6 +36,10 @@ namespace AppMediaMusic
 
         private void PlaylistButton_Click(object sender, RoutedEventArgs e)
         {
+            if (_player.playState == WMPPlayState.wmppsPlaying)
+            {
+                _player.controls.stop();
+            }
             PlaylistWindow playlist = new PlaylistWindow(UserId);
             playlist.ShowDialog();
         }

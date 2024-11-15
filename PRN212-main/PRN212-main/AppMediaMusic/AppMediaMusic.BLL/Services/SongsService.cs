@@ -26,6 +26,15 @@ namespace AppMediaMusic.BLL.Services
             return _repo.Add(filePath);
         }
 
+        public void Update(Song song)
+        {
+            _repo.Update(song);
+        }
+
+        public Song GetSongById(int id)
+        {
+            return _repo.GetSongById(id);
+        }
 
     }
 }

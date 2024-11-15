@@ -15,7 +15,7 @@
     <Border Background="White" CornerRadius="40" Loaded="Window_Loaded">
         <Grid>
             <Grid.Background>
-                <ImageBrush ImageSource="pack://application:,,,/Images/backg.jpg"/>
+                <ImageBrush ImageSource="D:\Project-PRN212\PRN212-main\PRN212-main\AppMediaMusic\AppMediaMusic\Images\backg.jpg"/>
             </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="220"/>

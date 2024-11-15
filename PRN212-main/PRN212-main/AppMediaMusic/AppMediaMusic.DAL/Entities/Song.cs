@@ -21,6 +21,7 @@ public partial class Song
     public DateTime? CreatedAt { get; set; }
 
     public virtual ICollection<PlaylistSong> PlaylistSongs { get; set; } = new List<PlaylistSong>();
+
     [NotMapped]
     public byte[] AlbumArt { get; set; }
 }

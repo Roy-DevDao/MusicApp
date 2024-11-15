@@ -55,5 +55,11 @@ namespace AppMediaMusic
         {
             Application.Current.Shutdown();
         }
+
+        private void forgetPassword_Click(object sender, RoutedEventArgs e)
+        {
+            ForgetPasswordWindow m = new ForgetPasswordWindow();
+            m.ShowDialog();
+        }
     }
 }

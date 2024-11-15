@@ -24,15 +24,17 @@ public partial class AssignmentPrnContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
-    public virtual DbSet<UserProfie> UserProfies { get; set; }
+    public virtual DbSet<UserProfile> UserProfiles { get; set; }
 
-
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Server=BAO;Database=AssignmentPRN;UID=sa;PWD=123;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Playlist>(entity =>
         {
-            entity.HasKey(e => e.PlaylistId).HasName("PK__Playlist__FB9C14106E1F3E1A");
+            entity.HasKey(e => e.PlaylistId).HasName("PK__Playlist__FB9C1410651116EC");
 
             entity.Property(e => e.PlaylistId).HasColumnName("playlist_id");
             entity.Property(e => e.CreatedAt)
@@ -46,12 +48,12 @@ public partial class AssignmentPrnContext : DbContext
 
             entity.HasOne(d => d.User).WithMany(p => p.Playlists)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__Playlists__user___4222D4EF");
+                .HasConstraintName("FK__Playlists__user___6383C8BA");
         });
 
         modelBuilder.Entity<PlaylistSong>(entity =>
         {
-            entity.HasKey(e => e.PlaylistsongId).HasName("PK__Playlist__08F3BE317ECBAF5F");
+            entity.HasKey(e => e.PlaylistsongId).HasName("PK__Playlist__08F3BE3164A958C9");
 
             entity.Property(e => e.PlaylistsongId).HasColumnName("playlistsong_id");
             entity.Property(e => e.AddedAt)
@@ -63,16 +65,16 @@ public partial class AssignmentPrnContext : DbContext
 
             entity.HasOne(d => d.Playlist).WithMany(p => p.PlaylistSongs)
                 .HasForeignKey(d => d.PlaylistId)
-                .HasConstraintName("FK__PlaylistS__playl__48CFD27E");
+                .HasConstraintName("FK__PlaylistS__playl__6A30C649");
 
             entity.HasOne(d => d.Song).WithMany(p => p.PlaylistSongs)
                 .HasForeignKey(d => d.SongId)
-                .HasConstraintName("FK__PlaylistS__song___49C3F6B7");
+                .HasConstraintName("FK__PlaylistS__song___6B24EA82");
         });
 
         modelBuilder.Entity<Song>(entity =>
         {
-            entity.HasKey(e => e.SongId).HasName("PK__Songs__A535AE1C5CE1F877");
+            entity.HasKey(e => e.SongId).HasName("PK__Songs__A535AE1CF6E917D5");
 
             entity.Property(e => e.SongId).HasColumnName("song_id");
             entity.Property(e => e.Album)
@@ -99,9 +101,9 @@ public partial class AssignmentPrnContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("PK__Users__B9BE370FB723D6CA");
+            entity.HasKey(e => e.UserId).HasName("PK__Users__B9BE370F706C057E");
 
-            entity.HasIndex(e => e.Username, "UQ__Users__F3DBC572BA2FA04B").IsUnique();
+            entity.HasIndex(e => e.Username, "UQ__Users__F3DBC5725C3CD06C").IsUnique();
 
             entity.Property(e => e.UserId).HasColumnName("user_id");
             entity.Property(e => e.Password)
@@ -115,11 +117,11 @@ public partial class AssignmentPrnContext : DbContext
                 .HasColumnName("username");
         });
 
-        modelBuilder.Entity<UserProfie>(entity =>
+        modelBuilder.Entity<UserProfile>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("PK__UserProf__B9BE370FE1353277");
+            entity.HasKey(e => e.UserId).HasName("PK__UserProf__B9BE370F00882A4B");
 
-            entity.ToTable("UserProfie");
+            entity.ToTable("UserProfile");
 
             entity.Property(e => e.UserId)
                 .ValueGeneratedNever()
@@ -135,9 +137,9 @@ public partial class AssignmentPrnContext : DbContext
                 .HasMaxLength(10)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.User).WithOne(p => p.UserProfie)
-                .HasForeignKey<UserProfie>(d => d.UserId)
-                .HasConstraintName("FK__UserProfi__user___3E52440B");
+            entity.HasOne(d => d.User).WithOne(p => p.UserProfile)
+                .HasForeignKey<UserProfile>(d => d.UserId)
+                .HasConstraintName("FK__UserProfi__user___5FB337D6");
         });
 
         OnModelCreatingPartial(modelBuilder);

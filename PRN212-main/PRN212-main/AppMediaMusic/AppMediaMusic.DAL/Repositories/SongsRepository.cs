@@ -90,6 +90,24 @@ namespace AppMediaMusic.DAL.Repositories
             return true;
         }
 
-       
+        public void Update(Song song)
+        {
+            try
+            {
+                using var context = new AssignmentPrnContext();
+                context.Update(song);
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public Song GetSongById(int id)
+        {
+            using var context = new AssignmentPrnContext();
+            return context.Songs.FirstOrDefault(c => c.SongId == id);
+
+        }
     }
-}
+    }

@@ -612,3 +612,5 @@ D:\Project-PRN212\PRN212-main\PRN212-main\AppMediaMusic\AppMediaMusic\obj\Debug\
 D:\Project-PRN212\PRN212-main\PRN212-main\AppMediaMusic\AppMediaMusic\obj\Debug\net8.0-windows\AppMediaMusic.pdb
 D:\Project-PRN212\PRN212-main\PRN212-main\AppMediaMusic\AppMediaMusic\obj\Debug\net8.0-windows\AppMediaMusic.genruntimeconfig.cache
 D:\Project-PRN212\PRN212-main\PRN212-main\AppMediaMusic\AppMediaMusic\obj\Debug\net8.0-windows\ref\AppMediaMusic.dll
+D:\Project-PRN212\PRN212-main\PRN212-main\AppMediaMusic\AppMediaMusic\obj\Debug\net8.0-windows\ForgetPasswordWindow.g.cs
+D:\Project-PRN212\PRN212-main\PRN212-main\AppMediaMusic\AppMediaMusic\obj\Debug\net8.0-windows\ForgetPasswordWindow.baml

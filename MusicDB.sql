@@ -10,7 +10,7 @@ CREATE TABLE [Users] (
 	role int not null
 );
 
-CREATE TABLE UserProfie (
+CREATE TABLE UserProfile (
     user_id INT PRIMARY KEY,
     FullName NVARCHAR(100) NOT NULL,
     Birth Date NOT NULL,

@@ -15,5 +15,5 @@ public partial class User
 
     public virtual ICollection<Playlist> Playlists { get; set; } = new List<Playlist>();
 
-    public virtual UserProfie? UserProfie { get; set; }
+    public virtual UserProfile? UserProfile { get; set; }
 }
